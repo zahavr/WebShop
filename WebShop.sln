@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{F26E46B0-421B-4A62-999C-A3ABAAAFAA26}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{D9CD7156-E120-4366-A8C0-662D1EE7BFA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.API", "Services\Catalog\Catalog.API\Catalog.API.csproj", "{CAAD1A08-9009-468A-98D4-2F7AEE399FBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShop.Shared", "Services\WebShop.Shared\WebShop.Shared.csproj", "{5B4B3878-3C83-4AC4-91E9-0518B794A8FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D9CD7156-E120-4366-A8C0-662D1EE7BFA5} = {F26E46B0-421B-4A62-999C-A3ABAAAFAA26}
+		{CAAD1A08-9009-468A-98D4-2F7AEE399FBC} = {D9CD7156-E120-4366-A8C0-662D1EE7BFA5}
+		{5B4B3878-3C83-4AC4-91E9-0518B794A8FA} = {F26E46B0-421B-4A62-999C-A3ABAAAFAA26}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAAD1A08-9009-468A-98D4-2F7AEE399FBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAAD1A08-9009-468A-98D4-2F7AEE399FBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAAD1A08-9009-468A-98D4-2F7AEE399FBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAAD1A08-9009-468A-98D4-2F7AEE399FBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B4B3878-3C83-4AC4-91E9-0518B794A8FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B4B3878-3C83-4AC4-91E9-0518B794A8FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B4B3878-3C83-4AC4-91E9-0518B794A8FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B4B3878-3C83-4AC4-91E9-0518B794A8FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
