@@ -4,7 +4,7 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 #region Services
 
-builder.Services.AddExternalServices();
+builder.Services.AddExternalServices(builder.Configuration);
 builder.Services.AddInternalServices();
 
 #endregion

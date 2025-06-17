@@ -2,7 +2,7 @@
 
 internal static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddExternalServices(this IServiceCollection services)
+    public static IServiceCollection AddExternalServices(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddMapster();
         services.AddCarter(new DependencyContextAssemblyCatalog([typeof(Program).Assembly]));
@@ -10,6 +10,12 @@ internal static class ServiceCollectionExtensions
         {
             cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
         });
+        services.AddMarten(opt =>
+        {
+            string? dbConnectionString = configuration.GetConnectionString("Database");
+            ArgumentException.ThrowIfNullOrEmpty(dbConnectionString);
+            opt.Connection(dbConnectionString);
+            }).UseLightweightSessions();
 
         return services;
     }

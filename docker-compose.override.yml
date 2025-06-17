@@ -1,0 +1,14 @@
+﻿version: '3.7'
+
+services:
+  catalogdb:
+    container_name: catalogdb
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=Initial123!
+      - POSTGRES_DB=CatalogDb
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_catalog:/var/lib/postgresql/data/

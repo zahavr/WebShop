@@ -1,7 +1,4 @@
-﻿using Catalog.API.Models;
-using WebShop.Shared.Abstractions.CQRS;
-
-namespace Catalog.API.Products.CreateProduct;
+﻿namespace Catalog.API.Products.CreateProduct;
 
 internal record CreateProductCommand(
     string Name,
@@ -12,9 +9,9 @@ internal record CreateProductCommand(
 
 internal record CreateProductResult(Guid Id);
 
-internal class CreateProductHandler : ICommandHandler<CreateProductCommand, CreateProductResult>
+internal class CreateProductHandler(IDocumentSession session) : ICommandHandler<CreateProductCommand, CreateProductResult>
 {
-    public Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken = default)
+    public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken = default)
     {
         Product product = new Product
         {
@@ -24,7 +21,10 @@ internal class CreateProductHandler : ICommandHandler<CreateProductCommand, Crea
             Price = command.Price,
             Categories = command.Categories
         };
+
+        session.Store(product);
+        await session.SaveChangesAsync(cancellationToken);
         
-        return Task.FromResult(new CreateProductResult(Guid.NewGuid()));
+        return new CreateProductResult(product.Id);
     }
 }
