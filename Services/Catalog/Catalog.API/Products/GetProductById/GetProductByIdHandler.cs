@@ -11,7 +11,7 @@ internal class GetProductByIdQueryHandler(
     ILogger<GetProductByIdQueryHandler> logger) 
     : IQueryHandler<GetProductByIdQuery, GetProductByIdResult>
 {
-    public async Task<GetProductByIdResult> Handle(GetProductByIdQuery query, CancellationToken cancellationToken)
+    public async Task<GetProductByIdResult> Handle(GetProductByIdQuery query, CancellationToken cancellationToken = default)
     {
         logger.LogInformation("GetProductByIdQueryHandler.Handle called with {@Query}", query);
 
