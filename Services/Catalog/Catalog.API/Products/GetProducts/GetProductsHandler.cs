@@ -5,8 +5,8 @@ internal record GetProductQuery : IQuery<GetProductResult>;
 internal record GetProductResult(IEnumerable<Product> Products);
 
 internal class GetProductsQueryHandler(
-    IDocumentSession session,
-    ILogger<GetProductsQueryHandler> logger)
+    ILogger<GetProductsQueryHandler> logger,
+    IDocumentSession session)
     : IQueryHandler<GetProductQuery, GetProductResult>
 {
     public async Task<GetProductResult> Handle(GetProductQuery query, CancellationToken cancellationToken)

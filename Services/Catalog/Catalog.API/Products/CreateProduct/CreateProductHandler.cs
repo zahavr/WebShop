@@ -9,10 +9,15 @@ internal record CreateProductCommand(
 
 internal record CreateProductResult(Guid Id);
 
-internal class CreateProductCommandHandler(IDocumentSession session) : ICommandHandler<CreateProductCommand, CreateProductResult>
+internal class CreateProductCommandHandler(
+    ILogger<CreateProductCommandHandler> logger,
+    IDocumentSession session)
+    : ICommandHandler<CreateProductCommand, CreateProductResult>
 {
     public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken = default)
     {
+        logger.LogInformation("UpdateProductCommandHandler.Handle called with {@Command}", command);
+
         Product product = new Product
         {
             Name = command.Name,

@@ -5,8 +5,9 @@ internal record GetProductsByCategoryQuery(string Category) : IQuery<GetProducts
 internal record GetProductsByCategoryResult(IEnumerable<Product> Products);
 
 internal class GetProductsByCategoryQueryHandler(
-    IQuerySession session,
-    ILogger<GetProductsByCategoryQueryHandler> logger) : IQueryHandler<GetProductsByCategoryQuery, GetProductsByCategoryResult> 
+    ILogger<GetProductsByCategoryQueryHandler> logger,
+    IQuerySession session) 
+    : IQueryHandler<GetProductsByCategoryQuery, GetProductsByCategoryResult> 
 {
     public async Task<GetProductsByCategoryResult> Handle(GetProductsByCategoryQuery query, CancellationToken cancellationToken = default)
     {

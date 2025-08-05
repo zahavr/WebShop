@@ -8,7 +8,7 @@ public class GetProductsByCategoryEndpoint : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapGet("/products/category/{category:maxlength(64):minlength(1)}", async (string category, ISender sender) =>
+        app.MapGet("/products/category/{category:minlength(1):maxlength(128)}", async (string category, ISender sender) =>
             {
                 GetProductsByCategoryQuery query = new GetProductsByCategoryQuery(category);
                 GetProductsByCategoryResult result = await sender.Send(query);
@@ -20,6 +20,7 @@ public class GetProductsByCategoryEndpoint : ICarterModule
             .WithName("GetProductsByCategory")
             .Produces<GetProductsByCategoryResponse>(StatusCodes.Status200OK)
             .ProducesProblem(StatusCodes.Status400BadRequest)
+            .ProducesProblem(StatusCodes.Status404NotFound)
             .WithSummary("Get products by category")
             .WithDescription("Get products by category");
     }
