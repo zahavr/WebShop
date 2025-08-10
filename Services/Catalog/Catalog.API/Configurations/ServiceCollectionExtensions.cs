@@ -1,4 +1,6 @@
-﻿namespace Catalog.API.Configurations;
+﻿using WebShop.Shared.Behaviors;
+
+namespace Catalog.API.Configurations;
 
 internal static class ServiceCollectionExtensions
 {
@@ -9,7 +11,10 @@ internal static class ServiceCollectionExtensions
         services.AddMediatR(cfg =>
         {
             cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
+            cfg.AddOpenBehavior(typeof(ValidationBehavior<,>));
         });
+        services.AddValidatorsFromAssembly(typeof(Program).Assembly);
+        
         services.AddMarten(opt =>
         {
             string? dbConnectionString = configuration.GetConnectionString("Database");

@@ -2,7 +2,17 @@
 
 namespace Catalog.API.Products.DeleteProduct;
 
-internal record DeleteProductCommand(Guid ProductId) : ICommand<Unit>;
+public record DeleteProductCommand(Guid ProductId) : ICommand<Unit>;
+
+public class DeleteProductCommandValidator : AbstractValidator<DeleteProductCommand>
+{
+    public DeleteProductCommandValidator()
+    {
+        RuleFor(c => c.ProductId)
+            .NotEmpty()
+            .WithMessage(Constants.ProductValidation.ErrorMessages.ProductIdEmpty); 
+    }
+}
 
 internal class DeleteProductHandler(
     ILogger<DeleteProductHandler> logger,
