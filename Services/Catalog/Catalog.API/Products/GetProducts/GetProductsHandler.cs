@@ -1,6 +1,8 @@
-﻿namespace Catalog.API.Products.GetProducts;
+﻿using Marten.Pagination;
 
-internal record GetProductQuery : IQuery<GetProductResult>;
+namespace Catalog.API.Products.GetProducts;
+
+internal record GetProductQuery(int? PageNumber = 1, int? PageSize = 10 ) : IQuery<GetProductResult>;
 
 internal record GetProductResult(IEnumerable<Product> Products);
 
@@ -13,9 +15,9 @@ internal class GetProductsQueryHandler(
     {
         logger.LogInformation("GetProductsQueryHandler.Handle called with {@Query}", query);
 
-        IReadOnlyList<Product> products = await session
+        var products = await session
             .Query<Product>()
-            .ToListAsync(cancellationToken);
+            .ToPagedListAsync(query.PageNumber ?? 1, query.PageSize ?? 10,cancellationToken);
 
         return new GetProductResult(products);
     }
