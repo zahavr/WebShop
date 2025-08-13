@@ -12,6 +12,7 @@ internal static class ServiceCollectionExtensions
         {
             cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
             cfg.AddOpenBehavior(typeof(ValidationBehavior<,>));
+            cfg.AddOpenBehavior(typeof(LoggingBehavior<,>));
         });
         services.AddValidatorsFromAssembly(typeof(Program).Assembly);
         
