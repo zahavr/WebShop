@@ -5,3 +5,4 @@ global using Marten;
 global using MediatR;
 global using WebShop.Shared.Abstractions.CQRS;
 global using FluentValidation;
+global using WebShop.Shared.Exceptions.Handlers;

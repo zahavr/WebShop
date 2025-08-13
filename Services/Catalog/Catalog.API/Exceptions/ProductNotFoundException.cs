@@ -1,3 +1,6 @@
-﻿namespace Catalog.API.Exceptions;
+﻿using WebShop.Shared.Exceptions;
+using WebShop.Shared.Extensions;
 
-public class ProductNotFoundException(string id) : Exception($"Product with {id} not found");
+namespace Catalog.API.Exceptions;
+
+public class ProductNotFoundException(string id) : NotFoundException(ErrorMessages.ProductNotFound.Interpolate(id));

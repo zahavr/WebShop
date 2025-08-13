@@ -15,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		readme.md = readme.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{FFC0C19E-67FA-42DF-A957-E493EE7AD4CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShop.Shared.Tests", "..\tests\WebShop.Shared.Tests\WebShop.Shared.Tests.csproj", "{AD6C7D46-698A-4FFB-AEA2-DFACDC2896D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +28,7 @@ Global
 		{D9CD7156-E120-4366-A8C0-662D1EE7BFA5} = {F26E46B0-421B-4A62-999C-A3ABAAAFAA26}
 		{CAAD1A08-9009-468A-98D4-2F7AEE399FBC} = {D9CD7156-E120-4366-A8C0-662D1EE7BFA5}
 		{5B4B3878-3C83-4AC4-91E9-0518B794A8FA} = {F26E46B0-421B-4A62-999C-A3ABAAAFAA26}
+		{AD6C7D46-698A-4FFB-AEA2-DFACDC2896D6} = {FFC0C19E-67FA-42DF-A957-E493EE7AD4CE}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{CAAD1A08-9009-468A-98D4-2F7AEE399FBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -34,5 +39,9 @@ Global
 		{5B4B3878-3C83-4AC4-91E9-0518B794A8FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B4B3878-3C83-4AC4-91E9-0518B794A8FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B4B3878-3C83-4AC4-91E9-0518B794A8FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD6C7D46-698A-4FFB-AEA2-DFACDC2896D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD6C7D46-698A-4FFB-AEA2-DFACDC2896D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD6C7D46-698A-4FFB-AEA2-DFACDC2896D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD6C7D46-698A-4FFB-AEA2-DFACDC2896D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
