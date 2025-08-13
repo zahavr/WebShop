@@ -4,7 +4,7 @@ namespace Catalog.API.Configurations;
 
 internal static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddExternalServices(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddExternalServices(this IServiceCollection services)
     {
         services.AddMapster();
         services.AddCarter(new DependencyContextAssemblyCatalog([typeof(Program).Assembly]));
@@ -15,13 +15,6 @@ internal static class ServiceCollectionExtensions
             cfg.AddOpenBehavior(typeof(LoggingBehavior<,>));
         });
         services.AddValidatorsFromAssembly(typeof(Program).Assembly);
-        
-        services.AddMarten(opt =>
-        {
-            string? dbConnectionString = configuration.GetConnectionString("Database");
-            ArgumentException.ThrowIfNullOrEmpty(dbConnectionString);
-            opt.Connection(dbConnectionString);
-            }).UseLightweightSessions();
 
         return services;
     }

@@ -21,4 +21,9 @@ internal static class Constants
             public const decimal MinimalPrice = 0.00M;
         }
     }
+
+    public static class Environments
+    {
+        public const string Local = "Local";
+    }
 }

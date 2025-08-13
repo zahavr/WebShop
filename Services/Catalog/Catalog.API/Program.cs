@@ -1,3 +1,4 @@
+using Catalog.API;
 using Catalog.API.Configurations;
 
 
@@ -5,8 +6,9 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 #region Services
 
-builder.Services.AddExternalServices(builder.Configuration);
+builder.Services.AddExternalServices();
 builder.Services.AddInternalServices();
+builder.Services.AddPersistence(builder.Configuration, builder.Environment.IsEnvironment(Constants.Environments.Local));
 builder.Services.AddExceptionHandler<CommonApiExceptionHandler>();
 
 #endregion
